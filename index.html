@@ -24,6 +24,390 @@
   .translation { font-size: 14px; font-weight: 500; color: #085041; text-align: center; line-height: 1.4; }
   .card-svg { width: 84px; height: 84px; }
   .tag { font-size: 10px; color: #aaa; position: absolute; top: 8px; right: 10px; }
+
+  /* =========================================================
+     INTERACTIVE VOCABULARY QUIZ
+  ========================================================= */
+  .quiz-section {
+    margin-top: 44px;
+    padding-top: 26px;
+    border-top: 2px solid #e5e3dc;
+  }
+
+  .quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .quiz-title {
+    font-size: 20px;
+    font-weight: 650;
+    margin: 0 0 4px;
+  }
+
+  .quiz-subtitle {
+    font-size: 13px;
+    color: #6b6b66;
+    line-height: 1.5;
+    max-width: 720px;
+  }
+
+  .quiz-panel {
+    background: white;
+    border: 1px solid #dfded8;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 3px 14px rgba(0,0,0,.04);
+  }
+
+  .quiz-toolbar {
+    padding: 14px;
+    background: #faf9f6;
+    border-bottom: 1px solid #ebe9e2;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .quiz-toolbar label {
+    font-size: 12px;
+    color: #666;
+  }
+
+  .quiz-toolbar select,
+  .quiz-toolbar button {
+    font: inherit;
+    font-size: 13px;
+    border: 1px solid #cccac2;
+    background: white;
+    border-radius: 8px;
+    padding: 7px 10px;
+  }
+
+  .quiz-toolbar button {
+    cursor: pointer;
+  }
+
+  .quiz-toolbar .primary {
+    background: #534AB7;
+    border-color: #534AB7;
+    color: white;
+    font-weight: 600;
+  }
+
+  .quiz-body {
+    padding: 20px;
+  }
+
+  .quiz-topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+
+  .quiz-direction-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: #eeedfe;
+    color: #534ab7;
+    font-size: 12px;
+    font-weight: 650;
+  }
+
+  .quiz-progress {
+    font-size: 12px;
+    color: #777;
+  }
+
+  .quiz-progress-track {
+    width: 100%;
+    height: 7px;
+    border-radius: 99px;
+    background: #ecebe6;
+    overflow: hidden;
+    margin-bottom: 20px;
+  }
+
+  .quiz-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #7F77DD;
+    transition: width .25s ease;
+  }
+
+  .quiz-question-card {
+    min-height: 210px;
+    border: 1px solid #e7e5df;
+    background: #fcfcfa;
+    border-radius: 14px;
+    padding: 22px 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .quiz-instruction {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 12px;
+  }
+
+  .quiz-prompt-ar {
+    direction: rtl;
+    font-size: 42px;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  .quiz-prompt-en {
+    font-size: 26px;
+    line-height: 1.35;
+    font-weight: 650;
+  }
+
+  .quiz-icon-reveal {
+    width: 78px;
+    height: 78px;
+    margin-top: 12px;
+    display: none;
+  }
+
+  .quiz-icon-reveal.show {
+    display: block;
+  }
+
+  .quiz-answer-area {
+    margin-top: 16px;
+  }
+
+  .quiz-answer-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+  }
+
+  .quiz-answer-input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid #bbb9b2;
+    border-radius: 10px;
+    padding: 11px 12px;
+    font: inherit;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .quiz-answer-input[dir="rtl"] {
+    font-size: 21px;
+  }
+
+  .quiz-answer-input:focus {
+    border-color: #7F77DD;
+    box-shadow: 0 0 0 3px rgba(127,119,221,.12);
+  }
+
+  .quiz-answer-row button {
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 650;
+    cursor: pointer;
+  }
+
+  .check-btn {
+    color: white;
+    background: #534AB7;
+  }
+
+  .next-btn {
+    background: #e9e8e2;
+    color: #222;
+    display: none;
+  }
+
+  .next-btn.show {
+    display: inline-block;
+  }
+
+  .quiz-secondary-actions {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .quiz-secondary-actions button {
+    border: 1px solid #d8d6cf;
+    background: white;
+    color: #555;
+    border-radius: 8px;
+    padding: 6px 10px;
+    font: inherit;
+    font-size: 12px;
+    cursor: pointer;
+  }
+
+  .quiz-feedback {
+    min-height: 48px;
+    margin-top: 14px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    line-height: 1.5;
+    display: none;
+  }
+
+  .quiz-feedback.show {
+    display: block;
+  }
+
+  .quiz-feedback.correct {
+    background: #e1f5ee;
+    border: 1px solid #9fe1cb;
+    color: #085041;
+  }
+
+  .quiz-feedback.try-again {
+    background: #fff5e6;
+    border: 1px solid #fac775;
+    color: #633806;
+  }
+
+  .quiz-feedback.incorrect {
+    background: #fcebeb;
+    border: 1px solid #f7c1c1;
+    color: #8b1e1e;
+  }
+
+  .quiz-feedback .answer-display-ar {
+    direction: rtl;
+    font-size: 22px;
+    font-weight: 650;
+    display: inline-block;
+  }
+
+  .arabic-keyboard {
+    display: none;
+    margin-top: 12px;
+    padding: 10px;
+    background: #f7f6f2;
+    border-radius: 10px;
+    border: 1px solid #e5e3dc;
+  }
+
+  .arabic-keyboard.show {
+    display: block;
+  }
+
+  .keyboard-note {
+    font-size: 11px;
+    color: #888;
+    text-align: center;
+    margin-bottom: 7px;
+  }
+
+  .keyboard-keys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    direction: rtl;
+  }
+
+  .keyboard-keys button {
+    min-width: 34px;
+    height: 34px;
+    border: 1px solid #d5d3cc;
+    background: white;
+    border-radius: 7px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .keyboard-keys button.key-wide {
+    font-size: 12px;
+    min-width: 58px;
+  }
+
+  .quiz-stats {
+    border-top: 1px solid #ebe9e2;
+    background: #faf9f6;
+    padding: 12px 14px;
+    display: grid;
+    grid-template-columns: repeat(5, minmax(80px, 1fr));
+    gap: 8px;
+  }
+
+  .quiz-stat {
+    text-align: center;
+    font-size: 11px;
+    color: #777;
+  }
+
+  .quiz-stat strong {
+    display: block;
+    color: #222;
+    font-size: 17px;
+    margin-bottom: 1px;
+  }
+
+  .review-strip {
+    border-top: 1px solid #ebe9e2;
+    padding: 12px 14px;
+    display: none;
+  }
+
+  .review-strip.show {
+    display: block;
+  }
+
+  .review-title {
+    font-size: 12px;
+    font-weight: 650;
+    margin-bottom: 8px;
+  }
+
+  .review-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .review-chip {
+    border-radius: 999px;
+    background: #fff5e6;
+    color: #633806;
+    padding: 4px 8px;
+    font-size: 12px;
+    direction: rtl;
+  }
+
+  @media (max-width: 640px) {
+    .quiz-body { padding: 14px; }
+    .quiz-answer-row { flex-direction: column; }
+    .quiz-answer-row button { width: 100%; }
+    .quiz-prompt-ar { font-size: 36px; }
+    .quiz-prompt-en { font-size: 22px; }
+    .quiz-stats { grid-template-columns: repeat(2, 1fr); }
+    .quiz-stat:last-child { grid-column: 1 / -1; }
+  }
+
 </style>
 </head>
 <body>
@@ -37,6 +421,109 @@
   <span class="counter" id="counter"></span>
 </div>
 <div class="grid" id="grid"></div>
+
+<section class="quiz-section" id="quizSection">
+  <div class="quiz-header">
+    <div>
+      <h2 class="quiz-title">Vocabulary quiz</h2>
+      <p class="quiz-subtitle">
+        Type the translation rather than choosing from options. The quiz adapts to you:
+        words you miss return sooner and more often, while words you know gradually appear less often.
+      </p>
+    </div>
+  </div>
+
+  <div class="quiz-panel">
+    <div class="quiz-toolbar">
+      <label for="quizLesson">Words:</label>
+      <select id="quizLesson">
+        <option value="all">All lessons</option>
+        <option value="lesson3">Lesson 3</option>
+        <option value="lesson4">Lesson 4</option>
+        <option value="lesson5">Lesson 5</option>
+        <option value="lesson7">Lesson 7</option>
+      </select>
+
+      <label for="quizMode">Direction:</label>
+      <select id="quizMode">
+        <option value="mixed">Mixed</option>
+        <option value="ar-en">Arabic → English</option>
+        <option value="en-ar">English → Arabic</option>
+      </select>
+
+      <label for="quizLength">Round:</label>
+      <select id="quizLength">
+        <option value="10">10 questions</option>
+        <option value="20" selected>20 questions</option>
+        <option value="30">30 questions</option>
+        <option value="0">Continuous practice</option>
+      </select>
+
+      <button class="primary" type="button" id="startQuizBtn">Start / restart</button>
+      <button type="button" id="resetLearningBtn" title="Clears saved quiz mastery for this browser">Reset learning</button>
+    </div>
+
+    <div class="quiz-body">
+      <div class="quiz-topline">
+        <span class="quiz-direction-badge" id="quizDirectionBadge">Ready</span>
+        <span class="quiz-progress" id="quizProgressText">Press Start / restart</span>
+      </div>
+      <div class="quiz-progress-track">
+        <div class="quiz-progress-fill" id="quizProgressFill"></div>
+      </div>
+
+      <div class="quiz-question-card">
+        <div class="quiz-instruction" id="quizInstruction">Choose your settings and start the quiz.</div>
+        <div id="quizPrompt"><div class="quiz-prompt-en">Ready?</div></div>
+        <div class="quiz-icon-reveal" id="quizIconReveal"></div>
+      </div>
+
+      <div class="quiz-answer-area">
+        <div class="quiz-answer-row">
+          <input
+            class="quiz-answer-input"
+            id="quizAnswer"
+            type="text"
+            autocomplete="off"
+            autocapitalize="off"
+            spellcheck="false"
+            placeholder="Type your answer"
+            disabled
+          >
+          <button class="check-btn" type="button" id="checkAnswerBtn">Check</button>
+          <button class="next-btn" type="button" id="nextQuestionBtn">Next →</button>
+        </div>
+
+        <div class="quiz-secondary-actions">
+          <button type="button" id="hintBtn">Hint</button>
+          <button type="button" id="keyboardBtn">Arabic keyboard</button>
+          <button type="button" id="skipBtn">I don't know</button>
+        </div>
+
+        <div class="arabic-keyboard" id="arabicKeyboard">
+          <div class="keyboard-note">Use this if you do not have an Arabic keyboard.</div>
+          <div class="keyboard-keys" id="keyboardKeys"></div>
+        </div>
+
+        <div class="quiz-feedback" id="quizFeedback" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="quiz-stats">
+      <div class="quiz-stat"><strong id="statCorrect">0</strong>Correct</div>
+      <div class="quiz-stat"><strong id="statWrong">0</strong>Missed</div>
+      <div class="quiz-stat"><strong id="statStreak">0</strong>Streak</div>
+      <div class="quiz-stat"><strong id="statAccuracy">0%</strong>Accuracy</div>
+      <div class="quiz-stat"><strong id="statMastered">0</strong>Mastered</div>
+    </div>
+
+    <div class="review-strip" id="reviewStrip">
+      <div class="review-title">Words to review</div>
+      <div class="review-chips" id="reviewChips"></div>
+    </div>
+  </div>
+</section>
+
 <script>
 const vocab = [
   {arabic:"مَرْحَبًا",translation:"welcome",lesson:"lesson3",svg:`<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="32" cy="20" r="10" fill="#9FE1CB"/><path d="M14 54c0-9.94 8.06-18 18-18s18 8.06 18 18" stroke="#0F6E56" stroke-width="2.5" stroke-linecap="round"/><path d="M8 30l6 6M56 30l-6 6" stroke="#1D9E75" stroke-width="2.5" stroke-linecap="round"/></svg>`},
@@ -175,6 +662,622 @@ function renderGrid() {
 }
 
 renderGrid();
+
+
+// =========================================================
+// INTERACTIVE ADAPTIVE QUIZ
+// =========================================================
+
+const QUIZ_STORAGE_KEY = 'arabicVocabQuizProgress_v3';
+
+let quizState = {
+  active: false,
+  pool: [],
+  current: null,
+  direction: 'ar-en',
+  answered: 0,
+  correct: 0,
+  wrong: 0,
+  streak: 0,
+  target: 20,
+  attemptsOnCurrent: 0,
+  lastKeys: [],
+  reviewQueue: []
+};
+
+let learningData = loadLearningData();
+
+function vocabKey(v) {
+  return `${v.lesson}|${v.arabic}|${v.translation}`;
+}
+
+function loadLearningData() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(QUIZ_STORAGE_KEY) || '{}');
+    return saved && typeof saved === 'object' ? saved : {};
+  } catch {
+    return {};
+  }
+}
+
+function saveLearningData() {
+  try {
+    localStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(learningData));
+  } catch {}
+}
+
+function getLearning(v) {
+  const key = vocabKey(v);
+  if (!learningData[key]) {
+    learningData[key] = {
+      mastery: 0,
+      misses: 0,
+      correct: 0,
+      lastSeen: 0
+    };
+  }
+  return learningData[key];
+}
+
+function stripArabicHarakat(str) {
+  return (str || '')
+    .normalize('NFC')
+    .replace(/[\u064B-\u065F\u0670\u06D6-\u06ED]/g, '')
+    .replace(/ـ/g, '')
+    .trim();
+}
+
+function normalizeArabicBase(str) {
+  return stripArabicHarakat(str)
+    .replace(/[إأآٱ]/g, 'ا')
+    .replace(/ى/g, 'ي')
+    .replace(/ؤ/g, 'و')
+    .replace(/ئ/g, 'ي')
+    .replace(/[،؛؟!?.,'"“”‘’()\[\]{}:;_\-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function cleanArabicExact(str) {
+  return (str || '')
+    .normalize('NFC')
+    .replace(/ـ/g, '')
+    .replace(/[،؛؟!?.,'"“”‘’()\[\]{}:;_\-]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function hasArabicHarakat(str) {
+  return /[\u064B-\u065F\u0670\u06D6-\u06ED]/.test(str || '');
+}
+
+function arabicAnswerIsCorrect(user, target) {
+  const userBase = normalizeArabicBase(user);
+  const targetBase = normalizeArabicBase(target);
+
+  if (!userBase || userBase !== targetBase) return false;
+
+  // No harakaat typed: accept the correct Arabic letters.
+  if (!hasArabicHarakat(user)) return true;
+
+  // Harakaat typed: they must match the supplied vocabulary form exactly.
+  return cleanArabicExact(user) === cleanArabicExact(target);
+}
+
+function normalizeEnglish(str) {
+  return (str || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\([^)]*\)/g, ' ')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function englishCandidates(target) {
+  const raw = target || '';
+  const pieces = raw
+    .split(/\s*\/\s*|,\s*|;\s*/)
+    .map(s => normalizeEnglish(s))
+    .filter(Boolean);
+
+  const all = [normalizeEnglish(raw), ...pieces];
+
+  // Common gloss variants that should not penalise the learner.
+  const expanded = [];
+  all.forEach(x => {
+    expanded.push(x);
+    expanded.push(x.replace(/^to\s+/, ''));
+    expanded.push(x.replace(/^a\s+/, ''));
+    expanded.push(x.replace(/^the\s+/, ''));
+  });
+
+  return [...new Set(expanded.filter(Boolean))];
+}
+
+function levenshtein(a, b) {
+  const rows = a.length + 1;
+  const cols = b.length + 1;
+  const dp = Array.from({length: rows}, () => Array(cols).fill(0));
+
+  for (let i = 0; i < rows; i++) dp[i][0] = i;
+  for (let j = 0; j < cols; j++) dp[0][j] = j;
+
+  for (let i = 1; i < rows; i++) {
+    for (let j = 1; j < cols; j++) {
+      const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + cost
+      );
+    }
+  }
+
+  return dp[a.length][b.length];
+}
+
+function englishAnswerIsCorrect(user, target) {
+  const u = normalizeEnglish(user);
+  if (!u) return false;
+
+  return englishCandidates(target).some(candidate => {
+    if (u === candidate) return true;
+
+    const maxLen = Math.max(u.length, candidate.length);
+    const distance = levenshtein(u, candidate);
+
+    // Conservative typo tolerance: forgiving enough for spelling,
+    // but not so loose that a different vocabulary word passes.
+    if (maxLen <= 4) return distance <= 1;
+    if (maxLen <= 7) return distance <= 1;
+    if (maxLen <= 11) return distance <= 2;
+    return distance <= Math.max(2, Math.floor(maxLen * 0.18));
+  });
+}
+
+function quizCandidates() {
+  const lesson = document.getElementById('quizLesson').value;
+  return lesson === 'all'
+    ? vocab.slice()
+    : vocab.filter(v => v.lesson === lesson);
+}
+
+function chooseDirection() {
+  const mode = document.getElementById('quizMode').value;
+  if (mode === 'mixed') return Math.random() < 0.5 ? 'ar-en' : 'en-ar';
+  return mode;
+}
+
+function pickWeightedWord(pool) {
+  if (!pool.length) return null;
+
+  // Priority review item: a missed word returns after a short gap.
+  if (quizState.reviewQueue.length) {
+    const dueIndex = quizState.reviewQueue.findIndex(item => item.due <= quizState.answered);
+    if (dueIndex >= 0) {
+      const [review] = quizState.reviewQueue.splice(dueIndex, 1);
+      const found = pool.find(v => vocabKey(v) === review.key);
+      if (found) return found;
+    }
+  }
+
+  const recent = new Set(quizState.lastKeys.slice(-2));
+
+  const weighted = pool.map(v => {
+    const data = getLearning(v);
+    const key = vocabKey(v);
+
+    // Low mastery + previous misses = more likely to appear.
+    let weight =
+      1 +
+      (5 - Math.min(5, data.mastery)) * 0.7 +
+      Math.min(5, data.misses) * 0.8;
+
+    // Avoid repeating the exact same item back-to-back unless the pool is tiny.
+    if (recent.has(key) && pool.length > 3) weight *= 0.12;
+
+    return {v, weight};
+  });
+
+  const total = weighted.reduce((sum, x) => sum + x.weight, 0);
+  let r = Math.random() * total;
+
+  for (const item of weighted) {
+    r -= item.weight;
+    if (r <= 0) return item.v;
+  }
+
+  return weighted[weighted.length - 1].v;
+}
+
+function startQuiz() {
+  quizState.pool = quizCandidates();
+  quizState.active = true;
+  quizState.current = null;
+  quizState.answered = 0;
+  quizState.correct = 0;
+  quizState.wrong = 0;
+  quizState.streak = 0;
+  quizState.attemptsOnCurrent = 0;
+  quizState.lastKeys = [];
+  quizState.reviewQueue = [];
+  quizState.target = Number(document.getElementById('quizLength').value);
+
+  if (!quizState.pool.length) return;
+
+  document.getElementById('quizAnswer').disabled = false;
+  document.getElementById('reviewStrip').classList.remove('show');
+  updateQuizStats();
+  nextQuizQuestion();
+}
+
+function endQuiz() {
+  quizState.active = false;
+  const prompt = document.getElementById('quizPrompt');
+  const instruction = document.getElementById('quizInstruction');
+  const badge = document.getElementById('quizDirectionBadge');
+  const answer = document.getElementById('quizAnswer');
+  const check = document.getElementById('checkAnswerBtn');
+  const next = document.getElementById('nextQuestionBtn');
+
+  const accuracy = quizState.answered
+    ? Math.round((quizState.correct / quizState.answered) * 100)
+    : 0;
+
+  badge.textContent = 'Round complete';
+  instruction.textContent = 'You can restart the round or change the lesson and direction.';
+  prompt.innerHTML = `<div class="quiz-prompt-en">${accuracy}% accuracy</div>`;
+  answer.disabled = true;
+  check.style.display = 'none';
+  next.classList.remove('show');
+  document.getElementById('quizIconReveal').classList.remove('show');
+
+  showFeedback(
+    accuracy >= 80
+      ? 'Strong round. Keep practising the review words until they also become secure.'
+      : 'Keep going. The quiz has saved which words need more practice.',
+    accuracy >= 80 ? 'correct' : 'try-again'
+  );
+
+  updateQuizStats();
+}
+
+function nextQuizQuestion() {
+  if (!quizState.active) return;
+
+  if (quizState.target > 0 && quizState.answered >= quizState.target) {
+    endQuiz();
+    return;
+  }
+
+  quizState.pool = quizCandidates();
+  quizState.current = pickWeightedWord(quizState.pool);
+  quizState.direction = chooseDirection();
+  quizState.attemptsOnCurrent = 0;
+
+  const key = vocabKey(quizState.current);
+  quizState.lastKeys.push(key);
+  if (quizState.lastKeys.length > 5) quizState.lastKeys.shift();
+
+  const prompt = document.getElementById('quizPrompt');
+  const instruction = document.getElementById('quizInstruction');
+  const badge = document.getElementById('quizDirectionBadge');
+  const input = document.getElementById('quizAnswer');
+  const icon = document.getElementById('quizIconReveal');
+  const check = document.getElementById('checkAnswerBtn');
+  const next = document.getElementById('nextQuestionBtn');
+
+  icon.innerHTML = quizState.current.svg;
+  icon.classList.remove('show');
+  hideFeedback();
+
+  input.value = '';
+  input.disabled = false;
+  next.classList.remove('show');
+  check.style.display = '';
+  check.disabled = false;
+
+  if (quizState.direction === 'ar-en') {
+    badge.textContent = 'Arabic → English';
+    instruction.textContent = 'Type the English meaning.';
+    prompt.innerHTML = `<div class="quiz-prompt-ar">${quizState.current.arabic}</div>`;
+    input.dir = 'ltr';
+    input.placeholder = 'Type the English meaning';
+    document.getElementById('arabicKeyboard').classList.remove('show');
+  } else {
+    badge.textContent = 'English → Arabic';
+    instruction.textContent = 'Type the Arabic word. Harakaat are optional.';
+    prompt.innerHTML = `<div class="quiz-prompt-en">${quizState.current.translation}</div>`;
+    input.dir = 'rtl';
+    input.placeholder = 'اكتب الكلمة بالعربية';
+  }
+
+  updateQuizStats();
+  setTimeout(() => input.focus(), 50);
+}
+
+function submitQuizAnswer() {
+  if (!quizState.active || !quizState.current) return;
+
+  const input = document.getElementById('quizAnswer');
+  const user = input.value.trim();
+
+  if (!user) {
+    showFeedback('Type an answer first, or choose “I don’t know”.', 'try-again');
+    input.focus();
+    return;
+  }
+
+  const correct = quizState.direction === 'ar-en'
+    ? englishAnswerIsCorrect(user, quizState.current.translation)
+    : arabicAnswerIsCorrect(user, quizState.current.arabic);
+
+  quizState.attemptsOnCurrent++;
+
+  if (correct) {
+    finishQuestion(true);
+    return;
+  }
+
+  // First miss: do not reveal immediately. Let the student retrieve it again.
+  if (quizState.attemptsOnCurrent === 1) {
+    const data = getLearning(quizState.current);
+    data.misses += 1;
+    data.mastery = Math.max(0, data.mastery - 1);
+    saveLearningData();
+
+    showFeedback(
+      'Not quite. Try once more. You can use Hint if you need a small clue.',
+      'try-again'
+    );
+
+    input.select();
+    return;
+  }
+
+  finishQuestion(false);
+}
+
+function finishQuestion(correct) {
+  const v = quizState.current;
+  const data = getLearning(v);
+  const key = vocabKey(v);
+  const input = document.getElementById('quizAnswer');
+  const icon = document.getElementById('quizIconReveal');
+
+  quizState.answered++;
+
+  if (correct) {
+    quizState.correct++;
+    quizState.streak++;
+    data.correct += 1;
+    data.mastery = Math.min(5, data.mastery + (quizState.attemptsOnCurrent === 1 ? 1 : 0.5));
+
+    if (quizState.attemptsOnCurrent === 1) {
+      showFeedback('Correct ✓', 'correct');
+    } else {
+      showFeedback('Correct on your second try ✓', 'correct');
+    }
+  } else {
+    quizState.wrong++;
+    quizState.streak = 0;
+    data.misses += 1;
+    data.mastery = Math.max(0, data.mastery - 1);
+
+    // Bring missed item back after roughly 2–4 answered questions.
+    quizState.reviewQueue.push({
+      key,
+      due: quizState.answered + 2 + Math.floor(Math.random() * 3)
+    });
+
+    const answer = quizState.direction === 'ar-en'
+      ? v.translation
+      : `<span class="answer-display-ar">${v.arabic}</span>`;
+
+    showFeedback(
+      `The answer is <strong>${answer}</strong>. This word has been moved into your review queue and will return soon.`,
+      'incorrect'
+    );
+  }
+
+  data.lastSeen = Date.now();
+  saveLearningData();
+
+  input.disabled = true;
+  icon.classList.add('show');
+  document.getElementById('checkAnswerBtn').style.display = 'none';
+  document.getElementById('nextQuestionBtn').classList.add('show');
+
+  updateQuizStats();
+  renderReviewWords();
+
+  if (quizState.target > 0 && quizState.answered >= quizState.target) {
+    document.getElementById('nextQuestionBtn').textContent = 'Finish round →';
+  } else {
+    document.getElementById('nextQuestionBtn').textContent = 'Next →';
+  }
+}
+
+function skipQuestion() {
+  if (!quizState.active || !quizState.current) return;
+
+  quizState.attemptsOnCurrent = Math.max(2, quizState.attemptsOnCurrent);
+  finishQuestion(false);
+}
+
+function showHint() {
+  if (!quizState.active || !quizState.current) return;
+
+  if (quizState.direction === 'ar-en') {
+    const candidates = englishCandidates(quizState.current.translation);
+    const target = candidates[0] || '';
+    const first = target.charAt(0).toUpperCase();
+    const wordCount = target.split(/\s+/).filter(Boolean).length;
+
+    showFeedback(
+      `Hint: the English answer begins with <strong>${first}</strong>${wordCount > 1 ? ` and contains ${wordCount} words` : ''}.`,
+      'try-again'
+    );
+  } else {
+    const base = normalizeArabicBase(quizState.current.arabic);
+    const first = base.charAt(0);
+    const count = base.replace(/\s/g, '').length;
+
+    showFeedback(
+      `Hint: the Arabic word begins with <span class="answer-display-ar">${first}</span> and has ${count} letters (ignoring spaces and harakaat).`,
+      'try-again'
+    );
+  }
+
+  document.getElementById('quizAnswer').focus();
+}
+
+function showFeedback(message, type) {
+  const el = document.getElementById('quizFeedback');
+  el.innerHTML = message;
+  el.className = `quiz-feedback show ${type}`;
+}
+
+function hideFeedback() {
+  const el = document.getElementById('quizFeedback');
+  el.innerHTML = '';
+  el.className = 'quiz-feedback';
+}
+
+function renderReviewWords() {
+  const selected = new Set(
+    Object.entries(learningData)
+      .filter(([, d]) => d.misses > 0 && d.mastery < 3)
+      .sort((a, b) => (b[1].misses - b[1].mastery) - (a[1].misses - a[1].mastery))
+      .slice(0, 8)
+      .map(([key]) => key)
+  );
+
+  const words = vocab.filter(v => selected.has(vocabKey(v)));
+  const strip = document.getElementById('reviewStrip');
+  const chips = document.getElementById('reviewChips');
+
+  if (!words.length) {
+    strip.classList.remove('show');
+    chips.innerHTML = '';
+    return;
+  }
+
+  chips.innerHTML = words.map(v => `<span class="review-chip">${v.arabic}</span>`).join('');
+  strip.classList.add('show');
+}
+
+function updateQuizStats() {
+  document.getElementById('statCorrect').textContent = quizState.correct;
+  document.getElementById('statWrong').textContent = quizState.wrong;
+  document.getElementById('statStreak').textContent = quizState.streak;
+
+  const accuracy = quizState.answered
+    ? Math.round((quizState.correct / quizState.answered) * 100)
+    : 0;
+
+  document.getElementById('statAccuracy').textContent = `${accuracy}%`;
+
+  const selectedPool = quizCandidates();
+  const mastered = selectedPool.filter(v => getLearning(v).mastery >= 4).length;
+  document.getElementById('statMastered').textContent = mastered;
+
+  const target = quizState.target;
+  const progressText = document.getElementById('quizProgressText');
+  const progressFill = document.getElementById('quizProgressFill');
+
+  if (!quizState.active) {
+    progressText.textContent = quizState.answered ? `${quizState.answered} answered` : 'Press Start / restart';
+  } else if (target === 0) {
+    progressText.textContent = `${quizState.answered} answered • continuous practice`;
+    progressFill.style.width = `${Math.min(100, (quizState.answered % 20) * 5)}%`;
+  } else {
+    const currentNumber = Math.min(target, quizState.answered + 1);
+    progressText.textContent = `Question ${currentNumber} of ${target}`;
+    progressFill.style.width = `${Math.min(100, (quizState.answered / target) * 100)}%`;
+  }
+}
+
+function resetLearning() {
+  const okay = confirm('Clear saved quiz progress and mastery on this browser?');
+  if (!okay) return;
+
+  learningData = {};
+  try { localStorage.removeItem(QUIZ_STORAGE_KEY); } catch {}
+  renderReviewWords();
+  updateQuizStats();
+  showFeedback('Saved learning progress has been reset.', 'correct');
+}
+
+function buildArabicKeyboard() {
+  const keys = [
+    'ا','أ','إ','آ','ب','ت','ث','ج','ح','خ','د','ذ','ر','ز','س','ش',
+    'ص','ض','ط','ظ','ع','غ','ف','ق','ك','ل','م','ن','ه','و','ي','ى','ة','ء','ؤ','ئ'
+  ];
+
+  const container = document.getElementById('keyboardKeys');
+  container.innerHTML =
+    keys.map(k => `<button type="button" data-key="${k}">${k}</button>`).join('') +
+    `<button type="button" class="key-wide" data-key=" ">space</button>` +
+    `<button type="button" class="key-wide" data-action="backspace">⌫</button>` +
+    `<button type="button" class="key-wide" data-action="clear">clear</button>`;
+
+  container.addEventListener('click', event => {
+    const button = event.target.closest('button');
+    if (!button) return;
+
+    const input = document.getElementById('quizAnswer');
+    input.focus();
+
+    if (button.dataset.action === 'backspace') {
+      input.value = input.value.slice(0, -1);
+    } else if (button.dataset.action === 'clear') {
+      input.value = '';
+    } else {
+      input.value += button.dataset.key || '';
+    }
+  });
+}
+
+document.getElementById('startQuizBtn').addEventListener('click', startQuiz);
+document.getElementById('resetLearningBtn').addEventListener('click', resetLearning);
+document.getElementById('checkAnswerBtn').addEventListener('click', submitQuizAnswer);
+document.getElementById('nextQuestionBtn').addEventListener('click', nextQuizQuestion);
+document.getElementById('skipBtn').addEventListener('click', skipQuestion);
+document.getElementById('hintBtn').addEventListener('click', showHint);
+
+document.getElementById('keyboardBtn').addEventListener('click', () => {
+  document.getElementById('arabicKeyboard').classList.toggle('show');
+});
+
+document.getElementById('quizAnswer').addEventListener('keydown', event => {
+  if (event.key !== 'Enter') return;
+
+  event.preventDefault();
+
+  const nextVisible = document.getElementById('nextQuestionBtn').classList.contains('show');
+  if (nextVisible) {
+    nextQuizQuestion();
+  } else {
+    submitQuizAnswer();
+  }
+});
+
+document.getElementById('quizLesson').addEventListener('change', () => {
+  if (quizState.active) startQuiz();
+  else updateQuizStats();
+});
+
+document.getElementById('quizMode').addEventListener('change', () => {
+  if (quizState.active) nextQuizQuestion();
+});
+
+buildArabicKeyboard();
+renderReviewWords();
+updateQuizStats();
+
 </script>
 </body>
 </html>
